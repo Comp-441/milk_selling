@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+    <servlet>
+        <servlet-name>MakeSale</servlet-name>
+        <servlet-class>controller.employee.clerk.MakeSale</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AddClerck</servlet-name>
+        <servlet-class>controller.employee.manager.AddClerck</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AddProduce</servlet-name>
+        <servlet-class>controller.production.AddProduce</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>MakeSale</servlet-name>
+        <url-pattern>/MakeSale</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddClerck</servlet-name>
+        <url-pattern>/AddClerck</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddProduce</servlet-name>
+        <url-pattern>/AddProduce</url-pattern>
+    </servlet-mapping>
+    <session-config>
+        <session-timeout>
+            30
+        </session-timeout>
+    </session-config>
+</web-app>
