@@ -1,8 +1,10 @@
 package person.employees;
 
 import java.sql.Date;
+import java.util.ArrayList;
 import person.employees.designation.Designation;
 import person.Person;
+import production.sales.Sales;
 
 public abstract class Employee extends Person{
 
@@ -70,11 +72,6 @@ public abstract class Employee extends Person{
 
     public static void login(Employee employee){
     
-    }
-
-    // View Sales Report
-    public static void viewSalesReport(){
-
     }
 
     public static void viewProductionReport(){

@@ -12,6 +12,10 @@
         <servlet-name>AddProduce</servlet-name>
         <servlet-class>controller.production.AddProduce</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>SalesController</servlet-name>
+        <servlet-class>com.sales.controller.SalesController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>MakeSale</servlet-name>
         <url-pattern>/MakeSale</url-pattern>
@@ -23,6 +27,10 @@
     <servlet-mapping>
         <servlet-name>AddProduce</servlet-name>
         <url-pattern>/AddProduce</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SalesController</servlet-name>
+        <url-pattern>/SalesController</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
