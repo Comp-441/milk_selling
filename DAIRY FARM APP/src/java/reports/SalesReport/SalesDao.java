@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.sales.dao;
+package reports.SalesReport;
 
+import java.sql.Date;
 import java.util.List;
 import production.sales.Sales;
 
@@ -14,6 +15,6 @@ import production.sales.Sales;
  */
 public interface SalesDao {
     
-    public List<Sales> viewSales();
+    public List<Sales> viewSales(Date date_from);
     
 }
