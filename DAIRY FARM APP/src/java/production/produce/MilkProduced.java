@@ -7,7 +7,7 @@ import production.cow.Cow;
 
 public class MilkProduced {
     private Date dateAdded;
-//    private Clerk clerk;
+    private Clerk clerk;
     private Double quantity;
     private String productionId;
     private String remarks;
@@ -17,9 +17,9 @@ public class MilkProduced {
 
     }
 
-    public MilkProduced(Date dateAdded, Double quantity, String productionId, String remarks, Cow cow) {
+    public MilkProduced(Clerk clerk, Date dateAdded, double quantity, String productionId, String remarks, Cow cow) {
         this.dateAdded = dateAdded;
-//        this.clerk = clerk;
+        this.clerk = clerk;
         this.quantity = quantity;
         this.productionId = productionId;
         this.remarks = remarks;
@@ -35,13 +35,13 @@ public class MilkProduced {
         this.dateAdded = dateAdded;
     }
 
-//    public Clerk getClerk() {
-//        return clerk;
-//    }
-//
-//    public void setClerk(Clerk clerk) {
-//        this.clerk = clerk;
-//    }
+    public Clerk getClerk() {
+        return clerk;
+    }
+
+    public void setClerk(Clerk clerk) {
+        this.clerk = clerk;
+    }
 
     
 

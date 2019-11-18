@@ -5,13 +5,10 @@
  */
 package reports.SalesReport;
 
-import com.sales.dao.DBConnect;
 import database.Database;
-import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import production.sales.Sales;
@@ -22,11 +19,6 @@ import production.sales.Sales;
  */
 public class SalesDaoImpl implements SalesDao{
 
-//    Connection connection = null;
-//    Statement statement = null;
-//    ResultSet resultSet = null;
-    
-    
     @Override
     public List<Sales> viewSales(Date date_from) {
       

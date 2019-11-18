@@ -6,16 +6,15 @@
 package controller.employee.manager;
 
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.Date;
+import java.sql.Date;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import person.employees.Clerk;
+import person.employees.Manager;
 import person.employees.designation.Designation;
-import production.sales.Sales;
 
 /**
  *
@@ -34,21 +33,25 @@ public class AddClerck extends HttpServlet {
             throws ServletException, IOException {
         
         //Customer ID
-     Date   dateProduced = new Date();
+     Date   dateProduced = new Date(System.currentTimeMillis());
      String firstName    = request.getParameter("firstName");
      String secondName   = request.getParameter("secondName");
      String dateOfBirth  = request.getParameter("dateOfBirth");
-     String empId        = request.getParameter("empId");
+     String empId        = request.getParameter("passWord");
+     String phoneNumber  = request.getParameter("phoneNumber");
+
     
-     Designation d       = Designation.Clerk;
+      Designation d       = Designation.Clerk;
      
-     //Saving the data
-        Sales sales= new Sales();
-        Clerk  clerk = new Clerk();
-        clerk.sellMilk(sales);
+        //Saving the data        
+        Clerk  clerk = new Clerk(Date.valueOf(dateOfBirth), empId, firstName, secondName, phoneNumber);
+        clerk.setDesignation(Designation.Clerk);
         
-      //dispatcher
-      request.setAttribute("sale", sales);
+        
+        Manager manager=new Manager();
+        manager.addClerk(clerk);
+       
+       
       
       //url
         String url= getServletContext().getRealPath("manager.jsp");

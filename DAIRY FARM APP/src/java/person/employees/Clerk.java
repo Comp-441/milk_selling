@@ -13,19 +13,26 @@ import production.sales.Sales;
 
 public class Clerk  extends Employee{
 
-    public Clerk(int empId) {
-        super(empId);
-    }
 
-
-    public Clerk(Date dateOfBirth, int empId, String password, String firstName, String secondName, String phoneNumber) {
-        super(dateOfBirth, empId, password, firstName, secondName, phoneNumber);
+    public Clerk(Date dateOfBirth, String password, String firstName, String secondName, String phoneNumber) {
+        super(dateOfBirth, password, firstName, secondName, phoneNumber);
         
         this.setDesignation(Designation.Clerk);
     }
 
-    public Clerk() {
+    public Clerk(String firstName, String secondName) {
+        super(firstName, secondName);
     }
+    
+    
+    
+     public Clerk(int empId) {
+        super(empId);
+    }
+     
+     
+
+   
     
 
     public  boolean addMilkProduced(MilkProduced produced){

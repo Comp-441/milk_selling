@@ -9,10 +9,8 @@ import java.util.logging.Logger;
 public class Manager extends Employee{
 
     public Manager() {
-    }
         
-
-    
+    }
     
     public  boolean addClerk(Clerk clerk){
         boolean inserSuccessFull=false;
@@ -35,7 +33,7 @@ public class Manager extends Employee{
             statement.setDate(5, clerk.getDateAdded());
             statement.setString(6, clerk.getPassword());
             
-           inserSuccessFull= database.insertToDB(statement);
+            inserSuccessFull= database.insertToDB(statement);
             database.close();
             
         } catch (SQLException ex) {

@@ -16,6 +16,10 @@
         <servlet-name>SalesController</servlet-name>
         <servlet-class>com.sales.controller.SalesController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ViewProduction</servlet-name>
+        <servlet-class>controller.production.ViewProduction</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>MakeSale</servlet-name>
         <url-pattern>/MakeSale</url-pattern>
@@ -31,6 +35,10 @@
     <servlet-mapping>
         <servlet-name>SalesController</servlet-name>
         <url-pattern>/SalesController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ViewProduction</servlet-name>
+        <url-pattern>/ViewProduction</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

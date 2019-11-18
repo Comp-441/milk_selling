@@ -20,6 +20,13 @@ public abstract class Person {
 
     }
 
+    public Person(String firstName, String secondName) {
+        this.firstName = firstName;
+        this.secondName = secondName;
+    }
+    
+    
+
 
     public String getFirstName() {
         return firstName;

@@ -6,7 +6,7 @@
 package controller.production;
 
 import java.io.IOException;
-import java.util.Date;
+import java.sql.Date;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -49,7 +49,7 @@ public class AddProduce extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-    Date dateAdded =new Date();
+    Date dateAdded =new Date(System.currentTimeMillis());
     int   empId         = Integer.parseInt(request.getParameter("Emp_ID"));
     double quantity     = Double.parseDouble(request.getParameter("quantity"));
     String productionId = request.getParameter("productionID");
@@ -61,7 +61,7 @@ public class AddProduce extends HttpServlet {
     Cow cow= new Cow(cowID);
     Clerk clerk=new Clerk(empId);
     
-    MilkProduced milkProduced=new MilkProduced((java.sql.Date) dateAdded, quantity, productionId, remarks, cow);
+    MilkProduced milkProduced=new MilkProduced(clerk, dateAdded, quantity, productionId, remarks, cow);
     
     clerk.addMilkProduced(milkProduced);
        

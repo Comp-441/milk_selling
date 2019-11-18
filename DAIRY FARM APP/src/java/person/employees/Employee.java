@@ -20,6 +20,12 @@ public abstract class Employee extends Person{
     public Employee() {
     }
 
+    public Employee(String firstName, String secondName) {
+        super(firstName, secondName);
+    }
+    
+    
+
     
     public Employee(int empID) {
        this.empId= empID;
@@ -32,10 +38,10 @@ public abstract class Employee extends Person{
      * @param password
      */
 
-    public Employee(Date dateOfBirth, int empId, String password, String firstName, String secondName, String phoneNumber) {
+    public Employee(Date dateOfBirth, String password, String firstName, String secondName, String phoneNumber) {
         super(firstName, secondName, phoneNumber);
         this.dateOfBirth = dateOfBirth;
-        this.empId = empId;
+//        this.empId = empId;
         this.password = password;
     }
     
@@ -76,16 +82,5 @@ public abstract class Employee extends Person{
 
     public  void login(Employee employee){
     
-    }
-
-    public  void viewProductionReport(){
-        ProductionReport report = new ProductionReport();
-        
-    }
-    
-     public  List<Sales> viewSalesReport(Date date_from){
-         SalesDao dao=new SalesDaoImpl();
-        
-         return dao.viewSales(date_from);
     }
 }
