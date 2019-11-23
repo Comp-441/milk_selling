@@ -32,8 +32,7 @@ public class AddClerck extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        //Customer ID
-     Date   dateProduced = new Date(System.currentTimeMillis());
+     //Customer ID
      String firstName    = request.getParameter("firstName");
      String secondName   = request.getParameter("secondName");
      String dateOfBirth  = request.getParameter("dateOfBirth");
@@ -41,7 +40,6 @@ public class AddClerck extends HttpServlet {
      String phoneNumber  = request.getParameter("phoneNumber");
 
     
-      Designation d       = Designation.Clerk;
      
         //Saving the data        
         Clerk  clerk = new Clerk(Date.valueOf(dateOfBirth), empId, firstName, secondName, phoneNumber);
@@ -54,7 +52,7 @@ public class AddClerck extends HttpServlet {
        
       
       //url
-        String url= getServletContext().getRealPath("manager.jsp");
+        String url= "/resources/manager/index.html";
       
         RequestDispatcher dispatcher=getServletContext().getRequestDispatcher(url);
         dispatcher.forward(request, response);

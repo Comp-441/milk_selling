@@ -34,6 +34,7 @@ public class AddProduce extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+         doPost(request, response);
       
     }
 
@@ -50,20 +51,26 @@ public class AddProduce extends HttpServlet {
             throws ServletException, IOException {
         
     Date dateAdded =new Date(System.currentTimeMillis());
-    int   empId         = Integer.parseInt(request.getParameter("Emp_ID"));
-    double quantity     = Double.parseDouble(request.getParameter("quantity"));
-    String productionId = request.getParameter("productionID");
-    String remarks      = request.getParameter("remarks");
+//    int   empId         = Integer.parseInt(request.getParameter("Emp_ID"));
     
-    String cowID        = request.getParameter("cowID");
-    String nickName     = request.getParameter("nickName");
+    
+    double quantity     = Double.parseDouble(request.getParameter("quantity"));
+//    String productionId = request.getParameter("productionID");
+    
+    
+    String remarks      = request.getParameter("remarks");    
+    String cowID        = request.getParameter("cow_id");
     
     Cow cow= new Cow(cowID);
-    Clerk clerk=new Clerk(empId);
+    Clerk clerk=new Clerk(3);
     
-    MilkProduced milkProduced=new MilkProduced(clerk, dateAdded, quantity, productionId, remarks, cow);
+    MilkProduced milkProduced=new MilkProduced(clerk, dateAdded, quantity, "P-2", remarks, cow);
     
     clerk.addMilkProduced(milkProduced);
+    
+    
+    // Set request dispatchers
+    
        
     }
 

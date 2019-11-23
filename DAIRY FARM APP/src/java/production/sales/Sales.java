@@ -1,6 +1,7 @@
 package production.sales;
 
 import java.sql.Date;
+import person.employees.Clerk;
 import production.produce.MilkProduced;
 
 public class Sales {
@@ -9,8 +10,10 @@ public class Sales {
     private MilkProduced produced;
     private String saleId;
     private double quantity;
+    private Clerk clerk;
 
-    public Sales(){}
+    public Sales(){
+    }
 
     public Sales(Date dateProduced, MilkProduced produced, String saleId, double quantity) {
         this.dateProduced = dateProduced;
@@ -20,7 +23,21 @@ public class Sales {
         this.quantity = quantity;
     }
 
-    
+    public MilkProduced getProduced() {
+        return produced;
+    }
+
+    public void setProduced(MilkProduced produced) {
+        this.produced = produced;
+    }
+
+    public Clerk getClerk() {
+        return clerk;
+    }
+
+    public void setClerk(Clerk clerk) {
+        this.clerk = clerk;
+    }
 
     public Date getDateProduced() {
         return dateProduced;

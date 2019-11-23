@@ -41,7 +41,7 @@ public class ProductionReport {
                     + " where date_added between ? and ? and quantity between ? and ? "
                     + " and  milkproduced.cow_id=cow.cow_id  and employee.emp_id=milkproduced.emp_id";
             
-            PreparedStatement statement=database.getPreparedStatement(cowID.equalsIgnoreCase("all")?query1:query2);
+            PreparedStatement statement=database.getPreparedStatement(cowID.equalsIgnoreCase("all")?query2:query1);
             
             statement.setDate(1, from);
             statement.setDate(2, to);
@@ -80,7 +80,7 @@ public class ProductionReport {
                 String lastName     = resultSet.getString(9);
 
                 
-                Cow cow= new Cow(cowID,cowNickName);
+                Cow cow= new Cow(cowId,cowNickName);
                 Clerk clerk = new Clerk(firstName,lastName);
                 
                 

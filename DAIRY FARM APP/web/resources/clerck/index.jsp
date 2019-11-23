@@ -62,7 +62,7 @@
           </div>
 
           <div class="row" id="production" style="margin: 0px; padding: 6px">
-              <%@include file="inputForms/AddCow.html" %>                                                  
+              <%@include file="inputForms/Sell Milk.html" %>                                                  
             </div>
             <div class="row">
                 <div class="col-lg-12">

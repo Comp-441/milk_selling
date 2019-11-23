@@ -6,13 +6,14 @@
 package controller.employee.clerk;
 
 import java.io.IOException;
-import java.util.Date;
+import java.sql.Date;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import person.employees.Clerk;
+import production.produce.MilkProduced;
 import production.sales.Sales;
 
 /**
@@ -30,26 +31,23 @@ public class MakeSale extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
         //Customer ID
-     Date   dateProduced = new Date();
-     String customerId   = request.getParameter("customerID");
-     String empId        = request.getParameter("empID");
-     String productionId = request.getParameter("productioID");
-     String saleId       = request.getParameter("saleID");
-     String quantity     = request.getParameter("quantity");
+     Date   dateSold = new Date(System.currentTimeMillis());
+//     String empId        = request.getParameter("emp_id");
+     String productionId = request.getParameter("production_Id");
+//     String saleId       = request.getParameter("sale_Id");
+     double quantity     = Double.parseDouble(request.getParameter("quantity_sold"));
      
+     MilkProduced produced=new MilkProduced(productionId);
      
      //Saving the data
-        Sales sales= new Sales();
-//        Clerk  clerk = new Clerk();
-//        clerk.sellMilk(sales);
+        Sales sales= new Sales(dateSold, produced,"S-1", quantity);
+        Clerk  clerk = new Clerk(3);
+        clerk.sellMilk(sales);
         
-      //dispatcher
-      request.setAttribute("sale", sales);
-      
+      //dispatcher      
       //url
-      String url= getServletContext().getRealPath("sales.jsp");
+      String url="/resources/clerck/";
       
       RequestDispatcher dispatcher=getServletContext().getRequestDispatcher(url);
       dispatcher.forward(request, response);

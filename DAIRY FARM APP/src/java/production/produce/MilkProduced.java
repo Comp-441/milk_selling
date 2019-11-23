@@ -2,7 +2,6 @@ package production.produce;
 
 import java.sql.Date;
 import person.employees.Clerk;
-import person.employees.Employee;
 import production.cow.Cow;
 
 public class MilkProduced {
@@ -13,9 +12,9 @@ public class MilkProduced {
     private String remarks;
     private Cow cow;
 
-    public MilkProduced(){
-
-    }
+    public MilkProduced(String produvtionId){
+        this.productionId=productionId;
+}
 
     public MilkProduced(Clerk clerk, Date dateAdded, double quantity, String productionId, String remarks, Cow cow) {
         this.dateAdded = dateAdded;

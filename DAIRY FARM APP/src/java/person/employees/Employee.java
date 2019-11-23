@@ -1,14 +1,8 @@
 package person.employees;
 
 import java.sql.Date;
-import java.util.ArrayList;
-import java.util.List;
 import person.employees.designation.Designation;
 import person.Person;
-import production.sales.Sales;
-import reports.ProductionReport.ProductionReport;
-import reports.SalesReport.SalesDao;
-import reports.SalesReport.SalesDaoImpl;
 
 public abstract class Employee extends Person{
 
@@ -18,6 +12,10 @@ public abstract class Employee extends Person{
     private Designation designation;
 
     public Employee() {
+        this.dateOfBirth=new Date(System.currentTimeMillis());
+        this.empId=0;
+        this.designation=Designation.Clerk;
+        this.password="passCode";
     }
 
     public Employee(String firstName, String secondName) {
@@ -34,14 +32,15 @@ public abstract class Employee extends Person{
     /**
      *
      * @param dateOfBirth
-     * @param empId
+     * @param secondName
+     * @param phoneNumber
+     * @param firstName 
      * @param password
      */
 
     public Employee(Date dateOfBirth, String password, String firstName, String secondName, String phoneNumber) {
         super(firstName, secondName, phoneNumber);
         this.dateOfBirth = dateOfBirth;
-//        this.empId = empId;
         this.password = password;
     }
     

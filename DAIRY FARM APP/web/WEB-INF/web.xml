@@ -20,6 +20,10 @@
         <servlet-name>ViewProduction</servlet-name>
         <servlet-class>controller.production.ViewProduction</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AddCow</servlet-name>
+        <servlet-class>controller.cow.addNewCow.AddCow</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>MakeSale</servlet-name>
         <url-pattern>/MakeSale</url-pattern>
@@ -39,6 +43,10 @@
     <servlet-mapping>
         <servlet-name>ViewProduction</servlet-name>
         <url-pattern>/ViewProduction</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddCow</servlet-name>
+        <url-pattern>/AddCow</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

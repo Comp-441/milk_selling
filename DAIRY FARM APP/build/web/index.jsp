@@ -17,37 +17,35 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </head>
 <body>
-<%--<%@ include file="adding/customer.html" %>--%>
-<%--<% Database database=new Database();--%>
-<%--   Connection connection=database.getConnection();--%>
-<%--%>--%>
+
+<!--     String firstName    = request.getParameter("firstName");
+     String secondName   = request.getParameter("secondName");
+     String dateOfBirth  = request.getParameter("dateOfBirth");
+     String empId        = request.getParameter("passWord");
+     String phoneNumber  = request.getParameter("phoneNumber");-->
+    
 <div class="container">
     <h2>Adding Customer form</h2>
-    <form action="resources/clerck/" method="post">
+    <form action="AddClerck" method="post">
         <div class="form-group">
-            <label for="name">FirstName:</label>
-            <input type="name" class="form-control" name="name" placeholder="Enter First name" name="name">
+            <label for="name">First Name:</label>
+            <input type="name" class="form-control"   name="firstName" placeholder="Enter First name" >
         </div>
         <div class="form-group">
-            <label for="name">SecondName:</label>
-            <input type="name" class="form-control" name="name" placeholder="Enter Second name" name="name">
+            <label for="name">Second Name:</label>
+            <input type="name" class="form-control"    name="secondName" placeholder="Enter Second name" >
         </div>
         <div class="form-group">
-            <label for="name">Customer ID:</label>
-            <input type="ID" class="form-control" name="id" placeholder="Enter Customer ID" name="id">
+            <label for="name">Date of Birth:</label>
+            <input type="Date" class="form-control"    name="dateOfBirth">
         </div>
         <div class="form-group">
-            <label for="name">Phone Number:</label>
-            <input type="Phone" class="form-control" name="Phone" placeholder="Enter  Phone Number" name="Phone">
+            <label for="DateAdded">Phone Number</label>
+            <input type="text" class="form-control" name="phoneNumber" >
         </div>
         <div class="form-group">
-            <label for="DateAdded">DateAdded:</label>
-            <input type="Date" class="form-control" name="Date" placeholder="Enter DateAdded" name="Date">
-        </div>
-        <div class="form-group form-check">
-            <label class="form-check-label">
-                <input class="form-check-input" type="checkbox" name="remember"> Remember me
-            </label>
+            <label for="DateAdded">passWord:</label>
+            <input type="password" class="form-control" name="passWord" >
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
