@@ -2,6 +2,23 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/root/NetBeansProjects/milk_selling/DAIRY%20FARM%20APP/src/java/production/sales/Sales.java</file>
+            <file>file:/root/NetBeansProjects/milk_selling/DAIRY%20FARM%20APP/src/java/person/employees/Manager.java</file>
+            <file>file:/root/NetBeansProjects/milk_selling/DAIRY%20FARM%20APP/web/resources/manager/index.html</file>
+            <file>file:/root/NetBeansProjects/milk_selling/DAIRY%20FARM%20APP/web/index.jsp</file>
+            <file>file:/root/NetBeansProjects/milk_selling/DAIRY%20FARM%20APP/src/java/controller/employee/clerk/MakeSale.java</file>
+            <file>file:/root/NetBeansProjects/milk_selling/DAIRY%20FARM%20APP/src/java/reports/ProductionReport/CowsReport.java</file>
+            <file>file:/root/NetBeansProjects/milk_selling/DAIRY%20FARM%20APP/web/resources/includes/commonFiles/CSS/Scripts/js/script.js</file>
+            <file>file:/root/NetBeansProjects/milk_selling/DAIRY%20FARM%20APP/src/java/reports/SalesReport/SalesReport.java</file>
+            <file>file:/root/NetBeansProjects/milk_selling/DAIRY%20FARM%20APP/src/java/controller/cow/addNewCow/AddCow.java</file>
+            <file>file:/root/NetBeansProjects/milk_selling/DAIRY%20FARM%20APP/src/java/person/employees/Clerk.java</file>
+            <file>file:/root/NetBeansProjects/milk_selling/DAIRY%20FARM%20APP/src/java/database/Database.java</file>
+            <file>file:/root/NetBeansProjects/milk_selling/DAIRY%20FARM%20APP/web/resources/clerck/index.html</file>
+            <file>file:/root/NetBeansProjects/milk_selling/DAIRY%20FARM%20APP/src/java/com/sales/controller/SalesController.java</file>
+            <file>file:/root/NetBeansProjects/milk_selling/DAIRY%20FARM%20APP/src/java/reports/ProductionReport/ProductionReport.java</file>
+            <file>file:/root/NetBeansProjects/milk_selling/DAIRY%20FARM%20APP/src/java/person/employees/Employee.java</file>
+            <file>file:/root/NetBeansProjects/milk_selling/DAIRY%20FARM%20APP/src/java/loginController/Login.java</file>
+        </group>
     </open-files>
 </project-private>

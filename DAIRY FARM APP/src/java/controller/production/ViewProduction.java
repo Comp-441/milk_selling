@@ -49,6 +49,20 @@ public class ViewProduction extends HttpServlet {
         
         
 
+        //Session
+        //Session
+        HttpSession session=request.getSession();
+        
+        //remove previous session if it exists
+        session.removeAttribute("salesReport");
+        
+        //add the results to a session
+        session.setAttribute("productionReport", productionReport);   
+        
+        
+        //Dispatcher
+        
+        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

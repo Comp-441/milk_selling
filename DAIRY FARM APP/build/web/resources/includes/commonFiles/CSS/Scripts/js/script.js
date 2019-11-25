@@ -7,7 +7,7 @@ $("#menu-toggle").click( function(e) {
 
  $(document).ready(function(){
     $("#sales").click(function(){
-      $("#production").load("inputForms/ViewSales.html");
+      $("#production").load("resources/inputForms/ViewSales.html");
     });
   });
 

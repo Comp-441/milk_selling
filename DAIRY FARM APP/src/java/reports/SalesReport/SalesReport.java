@@ -21,10 +21,10 @@ import production.sales.Sales;
  */
 public class SalesReport {
     
-    public List<Sales> viewSales(Date date_from, Date date_to, double min_quantity, double max_quantity, String emp_id, Designation designation) {
+    public ArrayList<Sales> viewSales(Date date_from, Date date_to, double min_quantity, double max_quantity, String emp_id, Designation designation) {
       
         //Reference variables
-        List<Sales> list = null;
+        ArrayList<Sales> list = null;
         Sales sales = null;
         
         try{
