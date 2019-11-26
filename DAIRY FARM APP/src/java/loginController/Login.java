@@ -78,16 +78,24 @@ public class Login extends HttpServlet {
                 HttpSession session= request.getSession();
                 
                 //create either ckerk or Manager
-                if(category.equalsIgnoreCase("Clerk")){
+                if(category.equalsIgnoreCase("clerk")){
                   Clerk clerk=new Clerk(resultSet.getString(2), resultSet.getString(3));
                   clerk.setEmpId(resultSet.getInt(1));
-                  session.setAttribute("clerck", clerk);
+                  
+                  session.removeAttribute("clerk");
+
+                  session.setAttribute("clerk", clerk);
+                  
+                    System.out.println(session.getAttribute("clerk"));
                 }else{
-                   Manager manager=new Manager(resultSet.getString(2), resultSet.getString(3));
+                   Manager manager= new Manager(resultSet.getString(2), resultSet.getString(3));
+                   
+                  manager.setEmpId(resultSet.getInt(1));
+                  
+                  session.removeAttribute("manager");
+                  session.setAttribute("manager", manager);
                 }
-                
-                //set attribute
-                
+                               
                 
                 
                  //dispatcher

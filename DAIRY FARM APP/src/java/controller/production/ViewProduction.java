@@ -54,7 +54,7 @@ public class ViewProduction extends HttpServlet {
         HttpSession session=request.getSession();
         
         //remove previous session if it exists
-        session.removeAttribute("salesReport");
+        session.removeAttribute("productionReport");
         
         //add the results to a session
         session.setAttribute("productionReport", productionReport);   

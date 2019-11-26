@@ -11,6 +11,12 @@ public class Manager extends Employee{
     public Manager() {
         
     }
+
+    public Manager(String firstName, String secondName) {
+        super(firstName, secondName);
+    }
+    
+    
     
     public  boolean addClerk(Clerk clerk){
         boolean inserSuccessFull=false;

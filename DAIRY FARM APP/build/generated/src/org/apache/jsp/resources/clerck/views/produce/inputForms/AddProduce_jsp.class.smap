@@ -1,0 +1,15 @@
+SMAP
+AddProduce_jsp.java
+JSP
+*S JSP
+*F
++ 0 AddProduce.jsp
+resources/clerck/views/produce/inputForms/AddProduce.jsp
+*L
+1,23:47
+25,6:72
+30:78
+31:79,6
+32:85,3
+33,32:88
+*E

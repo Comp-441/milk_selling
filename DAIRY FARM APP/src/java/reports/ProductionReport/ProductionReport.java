@@ -34,11 +34,11 @@ public class ProductionReport {
             
             
             String query1 ="SELECT milkproduced.*,cow.nickname,employee.first_name, employee.last_name FROM milkproduced,cow,employee"
-                    + " where date_added between ? and ? and cow_id=? and quantity between ? and ?"
+                    + " where milkproduced.date_added between ? and ? and cow_id=? and milkproduced.quantity between ? and ?"
                     + " and  milkproduced.cow_id=cow.cow_id and employee.emp_id=milkproduced.emp_id";
             
             String query2 ="SELECT milkproduced.*,cow.nickname,employee.first_name, employee.last_name FROM milkproduced,cow,employee"
-                    + " where date_added between ? and ? and quantity between ? and ? "
+                    + " where milkproduced.date_added between ? and ? and milkproduced.quantity between ? and ? "
                     + " and  milkproduced.cow_id=cow.cow_id  and employee.emp_id=milkproduced.emp_id";
             
             PreparedStatement statement=database.getPreparedStatement(cowID.equalsIgnoreCase("all")?query2:query1);
@@ -64,11 +64,8 @@ public class ProductionReport {
             
             while(resultSet.next()){
                 
-                
-//                production_Id 	emp_id 	quantity 	date_added 	cow_id 	remark 	nickname 	first_name 	last_name 	
-
                 String productionId = resultSet.getString(1);
-                String employeeId   = resultSet.getString(2);
+                int employeeId   = resultSet.getInt(2);
                 double quantity     = resultSet.getDouble(3);
                 Date   dateAdded    = resultSet.getDate(4);
                 String cowId        = resultSet.getString(5);
@@ -82,6 +79,7 @@ public class ProductionReport {
                 
                 Cow cow= new Cow(cowId,cowNickName);
                 Clerk clerk = new Clerk(firstName,lastName);
+                clerk.setEmpId(employeeId);
                 
                 
                 MilkProduced milkProduced= new MilkProduced(clerk,dateAdded, quantity, productionId, remarks,  cow);

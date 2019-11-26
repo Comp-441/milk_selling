@@ -11,6 +11,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import person.employees.Clerk;
 import production.cow.Cow;
 
@@ -36,10 +37,22 @@ public class AddCow extends HttpServlet {
         
         Cow cow=new Cow(id, name);
         
-        Clerk clerk=new Clerk(2);
-        clerk.addCow(cow);
+        HttpSession session= request.getSession();
+        
+        Clerk clerk=(Clerk) session.getAttribute("clerk");
+        
+        //redirect url
+        String url="/DAIRY FARM APPLICATION/resources/clerck/views/cows/";
+        
+        //check if clerck is null
+        
+        if(clerk instanceof Clerk)
+           clerk.addCow(cow);
+        else
+            url="/DAIRY FARM APPLICATION/";
         
         //include request dispatcher
+        response.sendRedirect(url);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

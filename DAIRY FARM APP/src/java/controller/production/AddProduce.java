@@ -11,6 +11,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import person.employees.Clerk;
 import production.cow.Cow;
 import production.produce.MilkProduced;
@@ -62,15 +63,29 @@ public class AddProduce extends HttpServlet {
     String cowID        = request.getParameter("cow_id");
     
     Cow cow= new Cow(cowID);
-    Clerk clerk=new Clerk(3);
+    
+    
+    //Session data
+    HttpSession session=request.getSession();
+    
+    Clerk clerk=(Clerk)session.getAttribute("clerk");
+    
     
     MilkProduced milkProduced=new MilkProduced(clerk, dateAdded, quantity, "P-2", remarks, cow);
     
-    clerk.addMilkProduced(milkProduced);
     
-    
-    // Set request dispatchers
-    
+       //redirect url
+        String url="/DAIRY FARM APPLICATION/resources/clerck/views/produce/";
+        
+        //check if clerck is null
+        
+        if(clerk instanceof Clerk)
+           clerk.addMilkProduced(milkProduced);
+        else
+            url="/DAIRY FARM APPLICATION/";
+        
+        //include request dispatcher
+        response.sendRedirect(url);
        
     }
 
