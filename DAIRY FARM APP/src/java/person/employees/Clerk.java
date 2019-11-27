@@ -1,6 +1,7 @@
 package person.employees;
 
 import database.Database;
+import java.io.Serializable;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -11,7 +12,7 @@ import production.cow.Cow;
 import production.produce.MilkProduced;
 import production.sales.Sales;
 
-public class Clerk  extends Employee{
+public class Clerk  extends Employee implements Serializable{
 
 
     public Clerk(Date dateOfBirth, String password, String firstName, String secondName, String phoneNumber) {
@@ -29,10 +30,10 @@ public class Clerk  extends Employee{
      public Clerk(int empId) {
         super(empId);
     }
-     
-     
 
-   
+    public Clerk() {
+    }
+     
     
 
     public  boolean addMilkProduced(MilkProduced produced){

@@ -10,7 +10,12 @@ public abstract class Person {
     private String  phoneNumber;
     private Date    dateAdded;
 
-    public Person(){}
+    public Person(){
+       this.firstName="firstName";
+       this.secondName="secondName";
+       this.phoneNumber="phoneNumber";
+       this.dateAdded=new Date(System.currentTimeMillis());
+    }
 
     public Person(String firstName, String secondName, String phoneNumber){
         this.firstName   =firstName;

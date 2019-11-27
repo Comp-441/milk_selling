@@ -20,6 +20,8 @@
             </thead>
              <tbody>
                  
+                 <jsp:useBean id="report" class="reports.ProductionReport.CowsReport" scope="session"></jsp:useBean>
+                 
             <% 
             
              CowsReport report=new CowsReport(); 

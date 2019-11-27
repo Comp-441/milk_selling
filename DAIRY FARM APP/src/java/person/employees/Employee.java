@@ -22,7 +22,6 @@ public abstract class Employee extends Person{
         super(firstName, secondName);
     }
     
-    
 
     
     public Employee(int empID) {

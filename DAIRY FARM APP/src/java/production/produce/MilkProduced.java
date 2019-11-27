@@ -12,9 +12,20 @@ public class MilkProduced {
     private String remarks;
     private Cow cow;
 
-    public MilkProduced(String produvtionId){
+    public MilkProduced(String productionId){
         this.productionId=productionId;
 }
+
+    public MilkProduced() {
+        this.clerk=new Clerk();
+        this.dateAdded=new Date(System.currentTimeMillis());
+        this.quantity=0.00;
+        this.productionId="P-1";
+        this.remarks="";
+        this.cow=new Cow();
+    }
+    
+    
 
     public MilkProduced(Clerk clerk, Date dateAdded, double quantity, String productionId, String remarks, Cow cow) {
         this.dateAdded = dateAdded;

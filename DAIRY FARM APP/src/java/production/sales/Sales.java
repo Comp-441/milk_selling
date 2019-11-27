@@ -13,11 +13,15 @@ public class Sales {
     private Clerk clerk;
 
     public Sales(){
+        this.clerk=new Clerk();
+        this.dateProduced=new Date(System.currentTimeMillis());
+        this.saleId="S-1";
+        this.quantity=0.00;
+        this.produced=new MilkProduced();
     }
 
     public Sales(Date dateProduced, MilkProduced produced, String saleId, double quantity) {
         this.dateProduced = dateProduced;
-//        this.customerId = customerId;
         this.produced = produced;
         this.saleId = saleId;
         this.quantity = quantity;
