@@ -58,12 +58,26 @@
           </div>
 
           <div class="row" id="production" style="margin: 0px; padding: 6px">
-              <div class="col-lg-12">
-                <a href="" class="button btn-success btn-sm" style="float: right;">Add new Cow</a>
-              </div>
               
-              <div class="col-lg-6">
-                <%@include file="inputForms/ViewCows.jsp" %>  
+              <div class="col-lg-12">
+                  <button id="toggleShown" class="btn btn-success" style="float: right;" onclick="changeToInputandBack('Sell milk')">
+                      Sell milk
+                  </button>
+              </div>
+             
+              
+              
+                <div class="col-lg-12">
+                  <div class="row" id="show">
+                      <div class="col-lg-6">
+                          <%@include file="inputForms/ViewSales.jsp" %>  
+                      </div> 
+                  </div> 
+                  <div class="row" id="hide">
+                      <div class="col-lg-6" >
+                          <%@include file="inputForms/SellMilk.html" %>
+                      </div>  
+                  </div>
               </div>
                  
               

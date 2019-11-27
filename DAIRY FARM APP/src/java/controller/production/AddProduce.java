@@ -71,7 +71,7 @@ public class AddProduce extends HttpServlet {
     Clerk clerk=(Clerk)session.getAttribute("clerk");
     
     
-    MilkProduced milkProduced=new MilkProduced(clerk, dateAdded, quantity, "P-2", remarks, cow);
+    MilkProduced milkProduced=new MilkProduced(clerk, dateAdded, quantity, "P-4", remarks, cow);
     
     
        //redirect url

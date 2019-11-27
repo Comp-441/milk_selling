@@ -10,7 +10,6 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
-import java.util.List;
 import person.employees.Clerk;
 import person.employees.designation.Designation;
 import production.sales.Sales;
@@ -33,7 +32,7 @@ public class SalesReport {
             Database database = new Database();
             
             //Query used by clercks
-            String sql  = "SELECT * FROM sales where date_sold between ? and ? and quantity between ? and ?";
+            String sql  = "SELECT * FROM sales where date_sold between ? and ? and quantity_sold between ? and ?";
             
             //Query used by manager           
 //              i. All employees

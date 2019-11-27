@@ -12,9 +12,10 @@
     
     ArrayList<MilkProduced>  produce=(ArrayList<MilkProduced>) request.getSession().getAttribute("");
     if( produce == null ){
-      produce= new ProductionReport().productionReport(new Date(System.currentTimeMillis()), new Date(System.currentTimeMillis()), "all", 0.00, 100.00);
+      produce= new ProductionReport().productionReport(Date.valueOf("2010-10-07"), new Date(System.currentTimeMillis()), "all", 0.00, 100.00);
     }
 
+    
 %>
 
 	<center>
@@ -37,27 +38,6 @@
 			<td>20L</td>
 		</tr>
                 <%}%>
-
-		<tr>
-			<td>EU002</td>
-			<td>Cheptilit</td>
-			<td>18L</td>
-		</tr>
-		<tr>
-			<td>EU003</td>
-			<td>Maua</td>
-			<td>15L</td>
-		</tr>
-		<tr>
-			<td>EU004</td>
-			<td>Lelkina</td>
-			<td>24L</td>
-		</tr>
-		<tr>
-			<td>EU005</td>
-			<td>Susana</td>
-			<td>15L</td>
-		</tr>
 		
             </tbody>
 		

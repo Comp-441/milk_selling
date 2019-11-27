@@ -29,6 +29,8 @@
             <li id="Cows"><a  href="#"> <span id="Cow"><i class="fas fa-chart-bar"></i></span> Cows </a></li>
             <li id="Produce"><a href="../produce/"> <span id="Produc"><i class="fas fa-users menu-icon"></i></span> Produce</a></li>
             <li id="sales"><a href="../sales/"> <span id="sale"><i class="fas fa-users menu-icon"></i></span> Sales </a></li>
+            <li id="employees"><a href="../employees/"> <span id=""><i class="fas fa-users menu-icon"></i></span> Employees </a></li>
+
         </ul>
       </div>
       <!-- Sidebar -->
@@ -59,30 +61,14 @@
 
           <div class="row" id="production" style="margin: 0px; padding: 6px">
               
-              <div class="col-lg-12">
-                  <button id="toggleShown" class="btn btn-success" style="float: right;" onclick="changeToInputandBack('Sell milk')">
-                      Sell milk
-                  </button>
-              </div>
-             
-              
-              
                 <div class="col-lg-12">
                   <div class="row" id="show">
                       <div class="col-lg-6">
-                          <%@include file="inputForms/ViewSales.jsp" %>  
+                          <%@include file="../sales/inputForms/ViewSales.jsp" %>  
                       </div> 
                   </div> 
-                  <div class="row" id="hide">
-                      <div class="col-lg-6" >
-                          <%@include file="inputForms/SellMilk.html" %>
-                      </div>  
-                  </div>
               </div>
-                 
-              
-              
-              
+
             </div>
             <div class="row">
                 <div class="col-lg-12">

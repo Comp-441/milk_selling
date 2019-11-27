@@ -33,6 +33,7 @@ public class ProductionReport {
             Database database=new Database();
             
             
+            
             String query1 ="SELECT milkproduced.*,cow.nickname,employee.first_name, employee.last_name FROM milkproduced,cow,employee"
                     + " where milkproduced.date_added between ? and ? and cow_id=? and milkproduced.quantity between ? and ?"
                     + " and  milkproduced.cow_id=cow.cow_id and employee.emp_id=milkproduced.emp_id";
