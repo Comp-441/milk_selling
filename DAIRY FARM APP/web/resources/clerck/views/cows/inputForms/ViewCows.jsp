@@ -20,7 +20,7 @@
             </thead>
              <tbody>
                  
-                 <jsp:useBean id="report" class="reports.ProductionReport.CowsReport" scope="session"></jsp:useBean>
+                 <%--<jsp:useBean id="reports" class="reports.ProductionReport.CowsReport" scope="session"></jsp:useBean>--%>
                  
             <% 
             
