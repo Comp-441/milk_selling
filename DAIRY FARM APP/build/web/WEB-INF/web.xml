@@ -32,6 +32,10 @@
         <servlet-name>Login</servlet-name>
         <servlet-class>loginController.Login</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>cowsReportController</servlet-name>
+        <servlet-class>controller.production.cowsReportController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>MakeSale</servlet-name>
         <url-pattern>/MakeSale</url-pattern>
@@ -63,6 +67,10 @@
     <servlet-mapping>
         <servlet-name>Login</servlet-name>
         <url-pattern>/Login</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>cowsReportController</servlet-name>
+        <url-pattern>/cowsReportController</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

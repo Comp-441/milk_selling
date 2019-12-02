@@ -24,7 +24,7 @@
 
 	<h2 align="center">Sales Table</h2>
 	
-        <table class="table table-sm">
+        <table class="table table-sm" id="myTable">
             <thead>
 		<tr>
 			<th>Quantity</th>

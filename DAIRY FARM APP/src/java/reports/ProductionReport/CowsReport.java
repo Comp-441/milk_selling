@@ -19,6 +19,11 @@ import production.cow.Cow;
  * @author root
  */
 public class CowsReport {
+
+    public CowsReport() {}
+    
+    
+    
     
     public ArrayList<Cow> getCowsReport(){
         

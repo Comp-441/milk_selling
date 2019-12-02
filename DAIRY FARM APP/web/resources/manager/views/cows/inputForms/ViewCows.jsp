@@ -10,7 +10,7 @@
 <center>
 
 	<h2>Cows Milked</h2>
-        <table class="table table-sm">
+        <table class="table table-sm" id="myTable">
             <thead>   
              <tr>
                  <th>Cow ID</th>

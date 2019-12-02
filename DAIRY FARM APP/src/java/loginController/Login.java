@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
@@ -20,6 +21,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import person.employees.Clerk;
 import person.employees.Manager;
+import production.cow.Cow;
+import reports.ProductionReport.CowsReport;
 
 /**
  *
@@ -46,15 +49,13 @@ public class Login extends HttpServlet {
             
             
             
-            
-            
             int id= Integer.parseInt(username.substring(2));
             
             
             //Set the url to dispatch to
             
             
-            String url=(category.equalsIgnoreCase("Clerk"))?"/resources/clerck/":"/resources/manager/";
+            String url=(category.equalsIgnoreCase("Clerk"))?"/resources/clerck/views/cows/":"/resources/manager/";
             
             
             //Process login
@@ -84,6 +85,13 @@ public class Login extends HttpServlet {
                   session.removeAttribute("clerk");
 
                   session.setAttribute("clerk", clerk);
+                  
+                  
+                    CowsReport report=new CowsReport(); 
+            
+                    ArrayList<Cow> list=report.getCowsReport();
+                  
+                    session.setAttribute("cowsReport", list);
                   
                     System.out.println(session.getAttribute("clerk"));
                 }else{

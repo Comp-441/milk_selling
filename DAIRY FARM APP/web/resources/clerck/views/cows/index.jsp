@@ -16,6 +16,7 @@
    <link rel="stylesheet" href="/DAIRY FARM APPLICATION/resources/includes/commonFiles/CSS/styleSheet/style.css">
    <link rel="stylesheet" href="/DAIRY FARM APPLICATION/resources/includes/commonFiles/CSS/bootstrap.min.css">
    <link rel="stylesheet" href="/DAIRY FARM APPLICATION/resources/includes/commonFiles/CSS/MDB/css/mdb.min.css">
+   <link rel="stylesheet" href="/DAIRY FARM APPLICATION/resources/includes/commonFiles/CSS/styleSheet/jquery.dataTables.min.css">
    <link rel="stylesheet" type="text/css" href="/DAIRY FARM APPLICATION/resources/includes/commonFiles/CSS/MDB/css/style.min.css">
 
 
@@ -26,7 +27,7 @@
       <div id="sidebar-wrapper">
 
         <ul class="sidebar-nav">
-            <li id="Cows"><a  href="../cows/"> <span id="Cow"><i class="fas fa-chart-bar"></i></span> Cows </a></li>
+            <li id="Cows"><a  href="/DAIRY FARM APPLICATION/Login"> <span id="Cow"><i class="fas fa-chart-bar"></i></span> Cows </a></li>
             <li id="Produce"><a href="../produce/"> <span id="Produc"><i class="fas fa-users menu-icon"></i></span> Produce</a></li>
             <li id="sales"><a href="../sales/"> <span id="sale"><i class="fas fa-users menu-icon"></i></span> Sales </a></li>
         </ul>
@@ -95,7 +96,16 @@
          <script src="/DAIRY FARM APPLICATION/resources/includes/commonFiles/CSS/Scripts/js/bootstrap.min.js"></script>
          <script src="/DAIRY FARM APPLICATION/resources/includes/commonFiles/CSS/Scripts/js/jquery-3.3.1.min.js"></script>
          <script src="/DAIRY FARM APPLICATION/resources/includes/commonFiles/CSS/MDB/js/mdb.min.js"></script>
+         <script src="/DAIRY FARM APPLICATION/resources/includes/commonFiles/CSS/Scripts/js/jquery.dataTables.min.js"></script>
+
          <script src="/DAIRY FARM APPLICATION/resources/includes/commonFiles/CSS/Scripts/js/script.js"></script>
+
+
+         <script >
+            $(document).ready(function () {
+                $('#myTable').dataTable();
+            });
+        </script>
   </body>
 </html>
 

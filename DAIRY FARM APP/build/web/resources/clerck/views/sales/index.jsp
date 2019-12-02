@@ -16,6 +16,7 @@
    <link rel="stylesheet" href="/DAIRY FARM APPLICATION/resources/includes/commonFiles/CSS/styleSheet/style.css">
    <link rel="stylesheet" href="/DAIRY FARM APPLICATION/resources/includes/commonFiles/CSS/bootstrap.min.css">
    <link rel="stylesheet" href="/DAIRY FARM APPLICATION/resources/includes/commonFiles/CSS/MDB/css/mdb.min.css">
+   <link rel="stylesheet" href="/DAIRY FARM APPLICATION/resources/includes/commonFiles/CSS/styleSheet/jquery.dataTables.min.css">
    <link rel="stylesheet" type="text/css" href="/DAIRY FARM APPLICATION/resources/includes/commonFiles/CSS/MDB/css/style.min.css">
 
 
@@ -97,7 +98,15 @@
          <script src="/DAIRY FARM APPLICATION/resources/includes/commonFiles/CSS/Scripts/js/bootstrap.min.js"></script>
          <script src="/DAIRY FARM APPLICATION/resources/includes/commonFiles/CSS/Scripts/js/jquery-3.3.1.min.js"></script>
          <script src="/DAIRY FARM APPLICATION/resources/includes/commonFiles/CSS/MDB/js/mdb.min.js"></script>
+         <script src="/DAIRY FARM APPLICATION/resources/includes/commonFiles/CSS/Scripts/js/jquery.dataTables.min.js"></script>
+
          <script src="/DAIRY FARM APPLICATION/resources/includes/commonFiles/CSS/Scripts/js/script.js"></script>
+
+         <script >
+          $(document).ready(function () {
+              $('#myTable').dataTable();
+          });
+      </script>
   </body>
 </html>
 

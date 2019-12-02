@@ -21,7 +21,7 @@
 	<center>
 
 	<h2>Production Table</h2>
-        <table class="table table-sm">
+        <table class="table table-sm"  id="myTable">
             <thead>
                 <tr>
 			<th>Cow Name</th>
