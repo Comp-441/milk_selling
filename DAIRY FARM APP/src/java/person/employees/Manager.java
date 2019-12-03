@@ -5,15 +5,33 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import person.employees.designation.Designation;
 
 public class Manager extends Employee{
 
     public Manager() {
+        this.setDesignation(Designation.Manager);
         
     }
 
+    public Manager(int empID) {
+        super(empID);
+        this.setDesignation(Designation.Manager);
+    }
+
+    public Manager(int empId, String password) {
+        super(empId, password);
+        this.setDesignation(Designation.Manager);
+    }
+    
+    
+    
+    
+
     public Manager(String firstName, String secondName) {
         super(firstName, secondName);
+        this.setDesignation(Designation.Manager);
+
     }
     
     

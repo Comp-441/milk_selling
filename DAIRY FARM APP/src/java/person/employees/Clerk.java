@@ -23,15 +23,28 @@ public class Clerk  extends Employee implements Serializable{
 
     public Clerk(String firstName, String secondName) {
         super(firstName, secondName);
+        this.setDesignation(Designation.Clerk);
+
     }
     
     
     
      public Clerk(int empId) {
         super(empId);
+        this.setDesignation(Designation.Clerk);
+
     }
 
+    public Clerk(int empId, String password) {
+        super(empId, password);
+        this.setDesignation(Designation.Clerk);
+    }
+     
+     
+    
+
     public Clerk() {
+        this.setDesignation(Designation.Clerk);
     }
      
     

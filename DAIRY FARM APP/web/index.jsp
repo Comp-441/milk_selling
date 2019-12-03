@@ -26,6 +26,11 @@
 	<link rel="stylesheet" type="text/css" href="resources/includes/login/css/util.css">
 	<link rel="stylesheet" type="text/css" href="resources/includes/login/css/main.css">
 <!--===============================================================================================-->
+
+
+      <!--validation-->
+       <link rel="stylesheet" href="/DAIRY FARM APPLICATION/resources/includes/commonFiles/CSS/styleSheet/validation.css">
+
 </head>
 <body>
 	
@@ -105,6 +110,10 @@
 	<script src="resources/includes/login/vendor/countdowntime/countdowntime.js"></script>
 <!--===============================================================================================-->
 	<script src="resources/includes/login/js/main.js"></script>
+        
+        <!--validation-->
+        <script src="/DAIRY FARM APPLICATION/resources/includes/commonFiles/CSS/Scripts/js/validation.js"></script>
+
 
 </body>
 </html>

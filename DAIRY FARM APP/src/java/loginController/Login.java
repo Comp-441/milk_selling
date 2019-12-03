@@ -5,9 +5,7 @@
  */
 package loginController;
 
-import database.Database;
 import java.io.IOException;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -20,6 +18,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import person.employees.Clerk;
+import person.employees.Employee;
 import person.employees.Manager;
 import production.cow.Cow;
 import reports.ProductionReport.CowsReport;
@@ -42,90 +41,64 @@ public class Login extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
        
-        try {
-            String username = request.getParameter("username");
-            String password = request.getParameter("password");
-            String category = request.getParameter("category");
+        String username = request.getParameter("username");
+        String password = request.getParameter("password");
+        String category = request.getParameter("category");
+        
+        
+        int id= Integer.parseInt(username.substring(2));
+        
+        Employee employee=(category.equalsIgnoreCase("clerk"))?
+                new Clerk(id,password):
+                new Manager(id,password);
+        
+        String url=(category.equalsIgnoreCase("Clerk"))?"/resources/clerck/views/cows/":"/resources/manager/";
+        
+        
+        
+        if(employee.login()){
+            //Create Session for looged in user
+            HttpSession session= request.getSession();
             
-            
-            
-            int id= Integer.parseInt(username.substring(2));
-            
-            
-            //Set the url to dispatch to
-            
-            
-            String url=(category.equalsIgnoreCase("Clerk"))?"/resources/clerck/views/cows/":"/resources/manager/";
-            
-            
-            //Process login
-            Database database=new Database();
-            
-            //Query
-            String query= "SELECT * from employee where emp_id=? and password=? and designation=?";
-            
-            PreparedStatement statement=database.getPreparedStatement(query);
-            
-            //give prepared statements parameters
-            statement.setInt(1, id);
-            statement.setString(2, password);
-            statement.setString(3, category);
-           
-            ResultSet resultSet= database.retrieveInfo(statement);
-            
-            if(resultSet.next()){
-              //Create Session for looged in user
-                HttpSession session= request.getSession();
+            //create either ckerk or Manager
+            if(category.equalsIgnoreCase("clerk")){
+                Clerk clerk=(Clerk)employee;
                 
-                //create either ckerk or Manager
-                if(category.equalsIgnoreCase("clerk")){
-                  Clerk clerk=new Clerk(resultSet.getString(2), resultSet.getString(3));
-                  clerk.setEmpId(resultSet.getInt(1));
-                  
-                  session.removeAttribute("clerk");
-
-                  session.setAttribute("clerk", clerk);
-                  
-                  
-                    CowsReport report=new CowsReport(); 
-            
-                    ArrayList<Cow> list=report.getCowsReport();
-                  
-                    session.setAttribute("cowsReport", list);
-                  
-                    System.out.println(session.getAttribute("clerk"));
-                }else{
-                   Manager manager= new Manager(resultSet.getString(2), resultSet.getString(3));
-                   
-                  manager.setEmpId(resultSet.getInt(1));
-                  
-                  session.removeAttribute("manager");
-                  session.setAttribute("manager", manager);
-                }
-                               
+                session.removeAttribute("clerk");
+                
+                session.setAttribute("clerk", clerk);
                 
                 
-                 //dispatcher
+                CowsReport report=new CowsReport();
                 
-                RequestDispatcher dispatcher= getServletContext().getRequestDispatcher(url);
+                ArrayList<Cow> list=report.getCowsReport();
                 
-                //dispatch request
-                dispatcher.forward(request, response);
+                session.setAttribute("cowsReport", list);              
                 
-              
             }else{
-                //dispatcher
+                Manager manager= (Manager)employee;
                 
-                url= "/index.jsp";
-                
-                RequestDispatcher dispatcher= getServletContext().getRequestDispatcher(url);
-                
-                //dispatch request
-                dispatcher.forward(request, response);
+                session.removeAttribute("manager");
+                session.setAttribute("manager", manager);
             }
+           
+            //dispatcher
             
-        } catch (SQLException ex) {
-            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+            RequestDispatcher dispatcher= getServletContext().getRequestDispatcher(url);
+            
+            //dispatch request
+            dispatcher.forward(request, response);
+            
+            
+        }else{
+            //dispatcher
+            
+            url= "/index.jsp";
+            
+            RequestDispatcher dispatcher= getServletContext().getRequestDispatcher(url);
+            
+            //dispatch request
+            dispatcher.forward(request, response);
         }
         
     }
