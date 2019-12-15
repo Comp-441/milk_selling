@@ -14,7 +14,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import person.employees.Clerk;
 import person.employees.Employee;
-import production.cow.Cow;
 import reports.ProductionReport.CowsReport;
 
 /**
@@ -40,6 +39,10 @@ public class EmployeeReport {
             
             while (resultSet.next()) {              
               Employee employee=new Clerk(resultSet.getString(2), resultSet.getString(3));
+              
+              employee.setEmpId(resultSet.getInt(1));
+              employee.setPhoneNumber(resultSet.getString(5));
+              employee.setDateAdded(resultSet.getDate(6));
               
               list.add(employee);    
             }

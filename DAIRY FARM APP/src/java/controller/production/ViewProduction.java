@@ -6,16 +6,17 @@
 package controller.production;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.Date;
 import java.util.ArrayList;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import javax.websocket.Session;
+import production.cow.Cow;
 import production.produce.MilkProduced;
+import reports.ProductionReport.CowsReport;
 import reports.ProductionReport.ProductionReport;
 
 /**
@@ -35,23 +36,36 @@ public class ViewProduction extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
+                
+        String date=(String)request.getParameter("min_date");
 
-        Date from= Date.valueOf(request.getParameter("min_date"));
-        Date to  = Date.valueOf(request.getParameter("max_date"));
+        Date from= (date != null)?Date.valueOf((String)request.getParameter("min_date")):Date.valueOf("2010-10-1"); ;
+        
+        Date to  =(date != null)?Date.valueOf(request.getParameter("max_date")): new Date(System.currentTimeMillis()); ;
         
         String cowID= request.getParameter("cowID");
+        cowID=(cowID != null)?cowID:"all";
         
-        double minQuantity = Double.parseDouble(request.getParameter("minQuantity"));
-        double maxQuantity = Double.parseDouble(request.getParameter("maxQuantity"));
+        double minQuantity =(request.getParameter("minQuantity") == null)?0.00: Double.parseDouble(request.getParameter("minQuantity"));   
+        double maxQuantity =(request.getParameter("maxQuantity") == null)?100.00: Double.parseDouble(request.getParameter("maxQuantity"));
         
        
+        //generate report
         ArrayList<MilkProduced>  productionReport= new ProductionReport().productionReport(from, to, cowID, minQuantity, maxQuantity);
         
         
-
-        //Session
+        //generate report
+         CowsReport report=new CowsReport();
+                
+         ArrayList<Cow> list=report.getCowsReport();
+        
+        
         //Session
         HttpSession session=request.getSession();
+        
+        session.setAttribute("cowsReport", list);  
+
         
         //remove previous session if it exists
         session.removeAttribute("productionReport");
@@ -61,7 +75,14 @@ public class ViewProduction extends HttpServlet {
         
         
         //Dispatcher
+        String url="/resources/views/produce/";
+          
+          
+        RequestDispatcher dispatcher= getServletContext().getRequestDispatcher(url);
+            
         
+        //dispatch request
+        dispatcher.forward(request, response);
         
     }
 

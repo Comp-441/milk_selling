@@ -1,6 +1,7 @@
 package person.employees;
 
 import database.Database;
+import id_reader.TextIO;
 import java.io.Serializable;
 import java.sql.Date;
 import java.sql.PreparedStatement;
@@ -115,8 +116,10 @@ public class Clerk  extends Employee implements Serializable{
     
     
     
-    public  boolean addCow(Cow cow){
+    public  boolean addCow(Cow cow, String cow_id_file){
           boolean inserSuccessFull=false;
+                  System.out.println("path= "+cow_id_file);
+
 
         try {
             Database database= new Database();
@@ -125,11 +128,13 @@ public class Clerk  extends Employee implements Serializable{
             
             PreparedStatement statement= database.getPreparedStatement(query); 
             
-            statement.setString(1, cow.getUsername());
+            statement.setString(1, cow.getUsername().toUpperCase());
             statement.setString(2, cow.getId());
             
             inserSuccessFull=database.insertToDB(statement);
             database.close();
+            
+            TextIO.upadate_id(cow_id_file);
             
         } catch (SQLException ex) {
             Logger.getLogger(Clerk.class.getName()).log(Level.SEVERE, null, ex);

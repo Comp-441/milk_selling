@@ -1,10 +1,11 @@
 package production.produce;
 
+import java.io.Serializable;
 import java.sql.Date;
 import person.employees.Clerk;
 import production.cow.Cow;
 
-public class MilkProduced {
+public class MilkProduced implements Serializable{
     private Date dateAdded;
     private Clerk clerk;
     private Double quantity;

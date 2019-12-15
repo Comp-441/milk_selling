@@ -6,6 +6,7 @@
 package reports.ProductionReport;
 
 import database.Database;
+import java.io.Serializable;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -18,7 +19,7 @@ import production.cow.Cow;
  *
  * @author root
  */
-public class CowsReport {
+public class CowsReport implements Serializable{
 
     public CowsReport() {}
     
@@ -29,8 +30,7 @@ public class CowsReport {
         
         ArrayList<Cow> list=new ArrayList<>();
         try {
-            
-            
+
             String query="select * from cow";
             
             Database database=new Database();
@@ -40,7 +40,7 @@ public class CowsReport {
             ResultSet resultSet= database.retrieveInfo(statement);
             
             while (resultSet.next()) {
-              Cow cow=new Cow(resultSet.getString(2), resultSet.getString(1));
+              Cow cow=new Cow(resultSet.getString(2).toUpperCase(), resultSet.getString(1).toUpperCase());
               
               list.add(cow);    
             }

@@ -6,11 +6,6 @@
 package loginController;
 
 import java.io.IOException;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -20,8 +15,6 @@ import javax.servlet.http.HttpSession;
 import person.employees.Clerk;
 import person.employees.Employee;
 import person.employees.Manager;
-import production.cow.Cow;
-import reports.ProductionReport.CowsReport;
 
 /**
  *
@@ -52,8 +45,8 @@ public class Login extends HttpServlet {
                 new Clerk(id,password):
                 new Manager(id,password);
         
-        String url=(category.equalsIgnoreCase("Clerk"))?"/resources/clerck/views/cows/":"/resources/manager/";
-        
+//       String url=(category.equalsIgnoreCase("Clerk"))?"/cowsReportController?category=clerck":"/resources/manager/";
+        String url="/cowsReportController?redirect=yes";
         
         
         if(employee.login()){
@@ -67,13 +60,7 @@ public class Login extends HttpServlet {
                 session.removeAttribute("clerk");
                 
                 session.setAttribute("clerk", clerk);
-                
-                
-                CowsReport report=new CowsReport();
-                
-                ArrayList<Cow> list=report.getCowsReport();
-                
-                session.setAttribute("cowsReport", list);              
+                              
                 
             }else{
                 Manager manager= (Manager)employee;
@@ -83,6 +70,8 @@ public class Login extends HttpServlet {
             }
            
             //dispatcher
+            
+            session.setAttribute("category", category);
             
             RequestDispatcher dispatcher= getServletContext().getRequestDispatcher(url);
             

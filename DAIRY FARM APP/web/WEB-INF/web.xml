@@ -36,6 +36,10 @@
         <servlet-name>cowsReportController</servlet-name>
         <servlet-class>controller.production.cowsReportController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>viewEmployees</servlet-name>
+        <servlet-class>controller.employee.manager.viewEmployees</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>MakeSale</servlet-name>
         <url-pattern>/MakeSale</url-pattern>
@@ -71,6 +75,10 @@
     <servlet-mapping>
         <servlet-name>cowsReportController</servlet-name>
         <url-pattern>/cowsReportController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>viewEmployees</servlet-name>
+        <url-pattern>/viewEmployees</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

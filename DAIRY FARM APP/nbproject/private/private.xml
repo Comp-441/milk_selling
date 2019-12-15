@@ -3,19 +3,15 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/root/NetBeansProjects/milk_selling/DAIRY%20FARM%20APP/web/resources/clerck/views/cows/inputForms/ViewCows.jsp</file>
-            <file>file:/root/NetBeansProjects/milk_selling/DAIRY%20FARM%20APP/web/resources/manager/views/produce/index.jsp</file>
+            <file>file:/root/NetBeansProjects/milk_selling/DAIRY%20FARM%20APP/web/resources/includes/commonFiles/CSS/Scripts/js/requests.js</file>
+            <file>file:/root/NetBeansProjects/milk_selling/DAIRY%20FARM%20APP/src/java/controller/employee/manager/AddClerck.java</file>
             <file>file:/root/NetBeansProjects/milk_selling/DAIRY%20FARM%20APP/web/index.jsp</file>
-            <file>file:/root/NetBeansProjects/milk_selling/DAIRY%20FARM%20APP/web/resources/includes/commonFiles/top.html</file>
-            <file>file:/root/NetBeansProjects/milk_selling/DAIRY%20FARM%20APP/web/resources/clerck/views/sales/index.jsp</file>
-            <file>file:/root/NetBeansProjects/milk_selling/DAIRY%20FARM%20APP/web/resources/includes/commonFiles/bottom.html</file>
-            <file>file:/root/NetBeansProjects/milk_selling/DAIRY%20FARM%20APP/web/resources/manager/views/cows/index.jsp</file>
-            <file>file:/root/NetBeansProjects/milk_selling/DAIRY%20FARM%20APP/web/resources/clerck/views/cows/index.jsp</file>
-            <file>file:/root/NetBeansProjects/milk_selling/DAIRY%20FARM%20APP/web/resources/clerck/views/produce/index.jsp</file>
-            <file>file:/root/NetBeansProjects/milk_selling/DAIRY%20FARM%20APP/web/resources/manager/views/employees/index.jsp</file>
+            <file>file:/root/NetBeansProjects/milk_selling/DAIRY%20FARM%20APP/web/resources/includes/commonFiles/top.jsp</file>
             <file>file:/root/NetBeansProjects/milk_selling/DAIRY%20FARM%20APP/web/resources/includes/commonFiles/CSS/Scripts/js/validation.js</file>
-            <file>file:/root/NetBeansProjects/milk_selling/DAIRY%20FARM%20APP/web/resources/clerck/index.html</file>
-            <file>file:/root/NetBeansProjects/milk_selling/DAIRY%20FARM%20APP/web/resources/manager/views/sales/index.jsp</file>
+            <file>file:/root/NetBeansProjects/milk_selling/DAIRY%20FARM%20APP/web/resources/includes/commonFiles/bottom.html</file>
+            <file>file:/root/NetBeansProjects/milk_selling/DAIRY%20FARM%20APP/src/java/controller/cow/addNewCow/AddCow.java</file>
+            <file>file:/root/NetBeansProjects/milk_selling/DAIRY%20FARM%20APP/web/resources/includes/commonFiles/menu_items.jsp</file>
+            <file>file:/root/NetBeansProjects/milk_selling/DAIRY%20FARM%20APP/web/resources/views/cows/index.jsp</file>
         </group>
     </open-files>
 </project-private>

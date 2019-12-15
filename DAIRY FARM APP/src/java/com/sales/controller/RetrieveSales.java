@@ -6,9 +6,9 @@
 package com.sales.controller;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.Date;
 import java.util.ArrayList;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -35,21 +35,32 @@ public class RetrieveSales extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-     //Get parameters for the report
-         Date date_from = Date.valueOf(request.getParameter("date_from")); 
-        Date date_to    = Date.valueOf(request.getParameter("date_from"));
-        double min_quantity   = Double.parseDouble(request.getParameter("min_quantity"));
-        double max_quantity   = Double.parseDouble(request.getParameter("min_quantity"));
-        String emp_id         = request.getParameter("emp_id");
-        Designation designation = Designation.valueOf(request.getParameter("designation"));
+     
+       //Get parameters for the report
+        String date=(String)request.getParameter("min_date");
+                
+        
+
+        Date date_from      = (date != null) ? Date.valueOf((String)request.getParameter("min_date")) : Date.valueOf("2010-10-1");
+        Date date_to        = (date != null) ? Date.valueOf((String)request.getParameter("max_date")) : new Date(System.currentTimeMillis()); 
         
         
-        SalesReport salesReport=new SalesReport();
+        double min_quantity = (date != null) ? Double.parseDouble(request.getParameter("min_quantity")) : 0.00 ; 
+        double max_quantity = (date != null) ? Double.parseDouble(request.getParameter("max_quantity")) : 1000.00 ; 
+
+        String emp_id           = (date != null) ? request.getParameter("emp_id") : "all"  ;
+        Designation designation = (date != null) ? Designation.valueOf(request.getParameter("designation")) : Designation.Clerk;
         
+        
+        
+        //generate report
+        SalesReport salesReport=new SalesReport();       
         
         ArrayList<Sales>  report= salesReport.viewSales(date_from, date_to,  min_quantity,  max_quantity,  emp_id,  designation);
         
-       //Session
+        System.out.println("elements:\t"+report.size());
+        
+        //Session
         HttpSession session=request.getSession();
         
         //remove previous session if it exists
@@ -58,7 +69,16 @@ public class RetrieveSales extends HttpServlet {
         //add the results to a session
         session.setAttribute("salesReport", report);
         
-      //Dispatcher
+        
+        //Dispatcher
+        String url="/resources/views/sales/";
+          
+          
+        RequestDispatcher dispatcher= getServletContext().getRequestDispatcher(url);
+            
+        
+        //dispatch request
+        dispatcher.forward(request, response);
         
     }
 

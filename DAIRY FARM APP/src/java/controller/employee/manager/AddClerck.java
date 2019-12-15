@@ -33,11 +33,11 @@ public class AddClerck extends HttpServlet {
             throws ServletException, IOException {
         
      //Customer ID
-     String firstName    = request.getParameter("firstName");
-     String secondName   = request.getParameter("secondName");
-     String dateOfBirth  = request.getParameter("dateOfBirth");
-     String empId        = request.getParameter("passWord");
-     String phoneNumber  = request.getParameter("phoneNumber");
+      String firstName    = request.getParameter("firstName");
+      String secondName   = request.getParameter("secondName");
+      String dateOfBirth  = request.getParameter("dateOfBirth");
+      String empId        = request.getParameter("employee_id");
+      String phoneNumber  = request.getParameter("phoneNumber");
 
     
      

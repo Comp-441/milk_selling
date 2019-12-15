@@ -5,9 +5,13 @@
  */
 package controller.production;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import id_reader.TextIO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -33,17 +37,61 @@ public class cowsReportController extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+       
         
-        
-        HttpSession session= request.getSession();
-
-        
+        //generate report
          CowsReport report=new CowsReport();
                 
          ArrayList<Cow> list=report.getCowsReport();
          
          
-       session.setAttribute("cowsReport", list);              
+         //read latest ID
+         String path=this.getServletContext().getRealPath("/WEB-INF/IDS/cow_id/id.txt");
+         
+         String cow_id="C-"+TextIO.read_id(path);
+         
+         //creating session and its values
+         HttpSession session= request.getSession();
+          
+         //add report to session
+         session.setAttribute("cowsReport", list);  
+         
+         //add the latest id to session
+         session.setAttribute("cow_id", cow_id);
+         
+         
+         if(((String)request.getParameter("redirect")).equalsIgnoreCase("yes")){
+          
+         //url to forward response
+         String url="/resources/views/cows/";
+          
+         //creating dispatcher
+         RequestDispatcher dispatcher= getServletContext().getRequestDispatcher(url);
+            
+         
+         //forward request
+         dispatcher.forward(request, response);
+
+         }else{
+             
+         ArrayList results= new ArrayList();
+         results.add(list);
+         results.add(new Cow(cow_id));
+         
+         Gson gson = new GsonBuilder().setPrettyPrinting().create();
+         String json=gson.toJson(results);
+          
+          
+          PrintWriter out = response.getWriter();
+          response.setContentType("text/javascript");
+          response.setCharacterEncoding("UTF-8");
+          out.print(json); 
+          out.flush();
+         
+         }
+         
+         
+          
 
       
     }

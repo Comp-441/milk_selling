@@ -7,6 +7,7 @@
 package reports.ProductionReport;
 
 import database.Database;
+import java.io.Serializable;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -22,7 +23,13 @@ import production.produce.MilkProduced;
  *
  * @author root
  */
-public class ProductionReport {
+public class ProductionReport  implements Serializable{
+
+    public ProductionReport() {
+    }
+    
+    
+    
     
     
     public ArrayList<MilkProduced> productionReport(Date from, Date to, String cowID, double minQuantity, double maxQuantity){
@@ -31,7 +38,6 @@ public class ProductionReport {
         
         try {
             Database database=new Database();
-            
             
             
             String query1 ="SELECT milkproduced.*,cow.nickname,employee.first_name, employee.last_name FROM milkproduced,cow,employee"
@@ -86,12 +92,15 @@ public class ProductionReport {
                 MilkProduced milkProduced= new MilkProduced(clerk,dateAdded, quantity, productionId, remarks,  cow);
                 
                 report.add(milkProduced);
+                
             }
-            
-           
+
+          database.close();
+
         } catch (SQLException ex) {
             Logger.getLogger(ProductionReport.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
         
          return report;
     }
